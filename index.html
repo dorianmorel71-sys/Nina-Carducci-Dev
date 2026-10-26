@@ -1,11 +1,22 @@
 <!DOCTYPE html>
-<!-- (access) : lang="fr"-->
+<!-- (access) : lang="fr" -->
 <html lang="fr">
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<!-- (access + SEO) title -->
-	<title>Nina Carducci - Photographe</title>
+
+	<!-- (access + SEO) : title explicite -->
+	<title>Nina Carducci - Photographe professionnelle en Île-de-France</title>
+
+	<!-- (SEO) : Méta description pour les moteurs de recherche -->
+	<meta name="description" content="Découvrez le portfolio de Nina Carducci, photographe professionnelle à Paris et en Île-de-France. Portraits, shootings photo, événements et retouches.">
+
+	<!-- (SEO) : Balises Open Graph pour les réseaux sociaux -->
+	<meta property="og:type" content="website">
+	<meta property="og:title" content="Nina Carducci - Photographe">
+	<meta property="og:description" content="Capturez vos moments précieux avec Nina Carducci, photographe en Île-de-France.">
+	<meta property="og:image" content="./assets/images/nina.jpg">
+
 	<link rel="stylesheet" href="./assets/bootstrap/bootstrap.css">
 	<link rel="stylesheet" href="./assets/style.css">
 	<link rel="preconnect" href="https://fonts.googleapis.com">
@@ -20,7 +31,7 @@
 </head>
 <body>
 
-<!-- (access) : header & nav au lieu de div -->
+<!-- (access + SEO) : header, nav et h1 unique -->
 <header class="top-header">
 	<h1 class="name">Nina Carducci</h1>
 	<nav class="nav">
@@ -35,7 +46,7 @@
 	</nav>
 </header>
 
-<!-- (access) : balise main -->
+<!-- (access + SEO) : balise main -->
 <main>
 	<section id="header">
 		<div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
@@ -76,6 +87,7 @@
 			<img src="./assets/images/nina.png" alt="Portrait de Nina Carducci, photographe" loading="lazy">
 		</div>
 		<div id="about-me">
+			<!-- (SEO + access) : h2 pour respecter la hiérarchie des titres -->
 			<h2 class="about-me__title">A propos de moi</h2>
 			<p class="about-me__introduction">Devenir photographe était pour moi une évidence. Comme si j’y étais prédestiné. Saisir un moment, une émotion, une situation, un endroit, une lumière et les rendre immortels, voilà ce qui me fait vibrer.</p>
 			<p>Nous passons notre vie à chercher le bonheur, et lorsque nous y touchons, nous n’avons qu’une envie : le figer au travers de photographies pour le savourer avec les personnes qui sont importantes à nos yeux, ou le partager au plus grand nombre.
@@ -84,6 +96,7 @@
 	</section>
 
 	<section id="gallery">
+		<!-- (SEO + access) : h2 pour la hiérarchie -->
 		<h2 class="title">Portfolio</h2>
 		<div class="container py-3">
 			<div class="gallery" style="display: none">
@@ -102,7 +115,7 @@
 		<div class="quote">
 			<figure>
 				<blockquote>
-					<!-- (access) : p au lieu de h1 pour éviter les h1 multiples -->
+					<!-- (SEO + access) : p au lieu de h1 pour éviter les h1 multiples -->
 					<p class="quote__text">Un portrait n’est pas une ressemblance. Dès lors qu’une émotion ou qu’un fait est traduit en photo, il cesse d’être un fait pour devenir une opinion. L’inexactitude n’existe pas en photographie. Toutes les photos sont exactes. Aucune d’elles n’est la vérité.</p>
 				</blockquote>
 				<figcaption class="quote__author">- Richard Avedon</figcaption>
@@ -111,6 +124,7 @@
 	</section>
 
 	<section id="services">
+		<!-- (SEO + access) : h2 pour la hiérarchie -->
 		<h2 class="title">Mes services</h2>
 		<div class="container">
 			<div class="service">
@@ -150,7 +164,7 @@
 	<div class="quote">
 		<figure>
 			<blockquote>
-				<!-- (access) : p au lieu de h1 -->
+				<!-- (SEO + access) : p au lieu de h1 -->
 				<p class="quote__text">De manière inconsciente, je crois, je guette un regard, une expression, des traits ou une nostalgie capable de résumer ou plus exactement de révéler une vie</p>
 			</blockquote>
 			<figcaption class="quote__author">- Richard Avedon</figcaption>
@@ -160,6 +174,7 @@
 	<section id="contact">
 		<div class="container">
 			<div class="form-container">
+				<!-- (SEO + access) : h2 pour la hiérarchie -->
 				<h2>Une question ? Une demande de devis ?</h2>
 				<p> N’hésitez pas à m’écrire ! Je vous répondrais en moins de 24 heures</p>
 				<form action="#" method="post">
@@ -184,7 +199,7 @@
 	</section>
 </main>
 
-<!-- (access) : footer pour clore le document -->
+<!-- (access + SEO) : footer pour clore proprement le document -->
 <footer style="text-align: center; padding: 20px 0; font-size: 0.9rem; color: #666;">
 	<p>&copy; 2026 - Nina Carducci - Tous droits réservés</p>
 </footer>
