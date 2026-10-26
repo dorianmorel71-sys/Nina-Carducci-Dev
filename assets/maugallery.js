@@ -2,14 +2,14 @@
   $.fn.mauGallery = function(options) {
     var options = $.extend($.fn.mauGallery.defaults, options);
 
-    // Évite de dupliquer les écouteurs d'événements si la galerie est appelée plusieurs fois
+    // PERFO : Évite de dupliquer les écouteurs d'événements si la galerie est appelée plusieurs fois
     if (!$.fn.mauGallery.isInitialized) {
       $.fn.mauGallery.listeners(options);
       $.fn.mauGallery.isInitialized = true;
     }
 
     return this.each(function() {
-      var $gallery =$(this);
+      var $gallery = $(this);
       var tagsCollection = [];
 
       $.fn.mauGallery.methods.createRowWrapper($gallery);
@@ -26,8 +26,8 @@
         var $item = $(this);
         $.fn.mauGallery.methods.responsiveImageItem($item);
 
-        // Utilisation du contexte local ($gallery) au lieu de sélecteurs globaux
-        $.fn.mauGallery.methods.moveItemInRowWrapper($item,$gallery);
+        // PERFO : Utilisation du contexte local ($gallery) au lieu de sélecteurs globaux
+        $.fn.mauGallery.methods.moveItemInRowWrapper($item, $gallery);
         $.fn.mauGallery.methods.wrapItemInColumn($item, options.columns);
 
         var theTag = $item.data("gallery-tag");
@@ -48,7 +48,7 @@
         );
       }
 
-      // Durée d'animation baissée
+      // PERFO : Durée d'animation unifiée à 300ms pour plus de fluidité
       $gallery.fadeIn(300);
     });
   };
@@ -71,7 +71,7 @@
 
     $(document).on("click", ".gallery .nav-link", $.fn.mauGallery.methods.filterByTag);
 
-    // Remplacement de prevImage/nextImage par une fonction mutualisée "changeImage" avec direction (-1 ou 1)
+    // PERFO : Remplacement par une fonction mutualisée "changeImage" avec direction (-1 ou 1)
     $(document).on("click", ".mg-prev", () =>
         $.fn.mauGallery.methods.changeImage(options.lightboxId, -1)
     );
@@ -94,7 +94,7 @@
         );
       } else if (typeof columns === "object") {
         var columnClasses = "";
-        // Utilisation d'une boucle pour générer dynamiquement les classes Bootstrap au lieu de répéter des blocs "if"
+        // PERFO : Utilisation d'une boucle pour générer dynamiquement les classes Bootstrap
         ["xs", "sm", "md", "lg", "xl"].forEach(size => {
           if (columns[size]) {
             var prefix = size === "xs" ? "col-" : `col-${size}-`;
@@ -107,7 +107,7 @@
       }
     },
 
-    // Passage explicite de la galerie en paramètre
+    // PERFO : Passage explicite de la galerie en paramètre
     moveItemInRowWrapper(element, gallery) {
       element.appendTo(gallery.find(".gallery-items-row"));
     },
@@ -126,11 +126,11 @@
       $(`#${modalId}`).modal("toggle");
     },
 
-    // Méthode propre pour récupérer uniquement les images visibles (filtrées)
+    // PERFO : Récupération uniquement des images visibles (filtrées)
     getFilteredImages() {
       let imagesCollection = [];
       $(".item-column:visible").each(function() {
-        let $img =$(this).children("img.gallery-item");
+        let $img = $(this).children("img.gallery-item");
         if ($img.length) {
           imagesCollection.push($img);
         }
@@ -138,10 +138,10 @@
       return imagesCollection;
     },
 
-    // Fusion de prevImage et nextImage en une seule fonction intelligente avec boucle circulaire
+    // PERFO : Fusion intelligente avec boucle circulaire
     changeImage(lightboxId, direction) {
       const modalId = lightboxId ? lightboxId : "galleryLightbox";
-      let $modal =$(`#${modalId}`);
+      let $modal = $(`#${modalId}`);
       let activeSrc = $modal.find(".lightboxImage").attr("src");
       let imagesCollection = $.fn.mauGallery.methods.getFilteredImages();
       let currentIndex = -1;
@@ -167,24 +167,24 @@
       const modalId = lightboxId ? lightboxId : "galleryLightbox";
       if ($(`#${modalId}`).length === 0) {
         gallery.append(`<div class="modal fade" id="${modalId}" tabindex="-1" role="dialog" aria-hidden="true">
-                  <div class="modal-dialog" role="document">
-                      <div class="modal-content">
-                          <div class="modal-body">
-                              ${
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-body">
+                            ${
             navigation
                 ? '<div class="mg-prev" style="cursor:pointer;position:absolute;top:50%;left:-15px;background:white;z-index:10;padding:5px 10px;user-select:none;"><</div>'
                 : '<span style="display:none;" />'
         }
-                              <img class="lightboxImage img-fluid" alt="Contenu de l'image affichée dans la modale au clique"/>
-                              ${
+                            <img class="lightboxImage img-fluid" alt="Image affichée dans la visionneuse de la galerie"/>
+                            ${
             navigation
                 ? '<div class="mg-next" style="cursor:pointer;position:absolute;top:50%;right:-15px;background:white;z-index:10;padding:5px 10px;user-select:none;">></div>'
                 : '<span style="display:none;" />'
         }
-                          </div>
-                      </div>
-                  </div>
-              </div>`);
+                        </div>
+                    </div>
+                </div>
+            </div>`);
       }
     },
 
@@ -206,24 +206,25 @@
       }
     },
 
-    // Logique de filtrage par tags plus propre et performante
+    // PERFO : Logique de filtrage par tags optimisée
     filterByTag() {
-      var $this =$(this);
+      var $this = $(this);
       if ($this.hasClass("active-tag")) {
         return;
       }
 
-      var $gallery =$this.closest(".gallery");
+      var $gallery = $this.closest(".gallery");
       $gallery.find(".active-tag").removeClass("active active-tag");
       $this.addClass("active-tag");
 
       var tag = $this.data("images-toggle");
-      var $columns =$gallery.find(".item-column");
+      var $columns = $gallery.find(".item-column");
 
       if (tag === "all") {
         $columns.show(200);
       } else {
-        $columns.hide();$columns.filter(function() {
+        $columns.hide();
+        $columns.filter(function() {
           return $(this).find(".gallery-item").data("gallery-tag") === tag;
         }).show(200);
       }
