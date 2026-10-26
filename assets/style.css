@@ -2,7 +2,9 @@ body {
 	max-width: 1920px;
 	margin: auto;
 }
-* {
+
+/* Ajout de * */
+ * {
 	font-family: 'Inter';
 	font-style: normal;
 }
@@ -91,7 +93,7 @@ body {
 }
 
 #gallery {
-	/*	min-height: 100vh; */
+	/*min-height: 100vh;*/
 }
 .title{
 	text-align: center;
@@ -100,14 +102,22 @@ body {
 .gallery .nav {
 	justify-content: center;
 }
-.nav-pills .nav-link.active, .nav-pills .show > .nav-link {
-	color: #fff;
-	background-color: #BEB45A;
-	border-radius:0 ;
+
+/* ACCESSIBILITÉ :
+   (Remplacement la couleur #BEB45A par #1a1a1a) */
+.nav-pills .nav-link.active,
+.nav-pills .show > .nav-link,
+span.nav-link.active,
+span.nav-link.active-tag {
+	color: #ffffff !important;
+	background-color: #1a1a1a !important;
+	border-radius: 0;
 }
+
 .nav-pills .nav-link {
-	color: #000
+	color: #1a1a1a !important;
 }
+
 .item-column {
 	position: relative;
 	margin-bottom: 0 !important;
@@ -353,4 +363,3 @@ input[type="submit"] {
 		width: 80%;
 	}
 }
-
