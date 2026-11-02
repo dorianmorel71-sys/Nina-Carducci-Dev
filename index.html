@@ -6,26 +6,73 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 	<!-- (access + SEO) : title explicite -->
-	<title>Nina Carducci - Photographe professionnelle en Île-de-France</title>
+	<title>Nina Carducci - Photographe professionnelle à Bordeaux</title>
 
 	<!-- (SEO) : Méta description -->
-	<meta name="description" content="Découvrez le portfolio de Nina Carducci, photographe professionnelle à Paris et en Île-de-France. Portraits, shootings photo, événements et retouches.">
+	<meta name="description" content="Découvrez le portfolio de Nina Carducci, photographe professionnelle à Bordeaux. Portraits, mariages, concerts, photos d'entreprise, retouches et albums photo.">
+	<link rel="canonical" href="https://nina-carducci.github.io/">
+	<link rel="icon" type="image/png" href="./favicon.png">
 
-	<!-- (SEO) : Balises Open Graph -->
+	<!-- (SEO) : Balises Open Graph (URL absolues) -->
 	<meta property="og:type" content="website">
-	<meta property="og:title" content="Nina Carducci - Photographe">
-	<meta property="og:description" content="Capturez vos moments précieux avec Nina Carducci, photographe en Île-de-France.">
-	<meta property="og:image" content="./assets/images/nina.jpg">
+	<meta property="og:locale" content="fr_FR">
+	<meta property="og:site_name" content="Nina Carducci Photographe">
+	<meta property="og:url" content="https://nina-carducci.github.io/">
+	<meta property="og:title" content="Nina Carducci - Photographe à Bordeaux">
+	<meta property="og:description" content="Capturez vos moments précieux avec Nina Carducci, photographe professionnelle à Bordeaux.">
+	<meta property="og:image" content="https://nina-carducci.github.io/assets/images/nina-og.jpg">
+	<meta property="og:image:alt" content="Portrait de Nina Carducci, photographe">
 
-	<link rel="stylesheet" href="./assets/bootstrap/bootstrap.css">
+	<!-- (SEO) : Balises Twitter Card -->
+	<meta name="twitter:card" content="summary_large_image">
+	<meta name="twitter:title" content="Nina Carducci - Photographe à Bordeaux">
+	<meta name="twitter:description" content="Capturez vos moments précieux avec Nina Carducci, photographe professionnelle à Bordeaux.">
+	<meta name="twitter:image" content="https://nina-carducci.github.io/assets/images/nina-og.jpg">
+	<meta name="twitter:image:alt" content="Portrait de Nina Carducci, photographe">
+
+	<!-- (SEO) : Référencement local Schema.org -->
+	<script type="application/ld+json">
+	{
+		"@context": "https://schema.org",
+		"@type": "LocalBusiness",
+		"@id": "https://nina-carducci.github.io/#business",
+		"name": "Nina Carducci - Photographe",
+		"description": "Photographe professionnelle à Bordeaux : portraits, mariages, concerts, photos d'entreprise, retouches et albums photo.",
+		"url": "https://nina-carducci.github.io/",
+		"image": "https://nina-carducci.github.io/assets/images/nina-og.jpg",
+		"telephone": "+33556677889",
+		"address": {
+			"@type": "PostalAddress",
+			"streetAddress": "68 avenue Alsace-Lorraine",
+			"postalCode": "33200",
+			"addressLocality": "Bordeaux",
+			"addressCountry": "FR"
+		},
+		"openingHoursSpecification": {
+			"@type": "OpeningHoursSpecification",
+			"dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+			"opens": "10:00",
+			"closes": "19:00"
+		},
+		"sameAs": ["https://www.instagram.com/ninacarducci.photo/"],
+		"makesOffer": [
+			{ "@type": "Offer", "name": "Shooting photo (demi-journée)", "price": "350", "priceCurrency": "EUR" },
+			{ "@type": "Offer", "name": "Retouches (par photo)", "price": "50", "priceCurrency": "EUR" },
+			{ "@type": "Offer", "name": "Album photos A4", "price": "400", "priceCurrency": "EUR" }
+		]
+	}
+	</script>
+
+	<!-- (perfo) : versions minifiées de Bootstrap -->
+	<link rel="stylesheet" href="./assets/bootstrap/bootstrap.min.css">
 	<link rel="stylesheet" href="./assets/style.css">
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Inter&family=Spectral:ital,wght@0,400;1,300;1,400;1,800&display=swap" rel="stylesheet">
 
-	<!-- (perfo) : "defer" -->
-	<script src="./assets/bootstrap/bootstrap.bundle.js" defer></script>
+	<!-- (perfo) : "defer" — jQuery doit rester avant Bootstrap pour que $.fn.modal soit défini -->
 	<script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous" defer></script>
+	<script src="./assets/bootstrap/bootstrap.bundle.min.js" defer></script>
 	<script src="./assets/maugallery.js" defer></script>
 	<script src="./assets/scripts.js" defer></script>
 </head>
@@ -58,15 +105,15 @@
 			<div class="carousel-inner">
 				<div class="carousel-item active">
 					<!-- (access + perfo) : WebP + fetchpriority="high" + alt descriptif -->
-					<img src="./assets/images/slider/ryoji-iwata-wUZjnOv7t0g-unsplash.webp" class="d-block w-100" alt="Homme traversant un passage piéton à Tokyo" fetchpriority="high">
+					<img src="./assets/images/slider/ryoji-iwata-wUZjnOv7t0g-unsplash.webp" class="d-block w-100" width="1200" height="555" alt="Homme traversant un passage piéton à Tokyo" fetchpriority="high">
 				</div>
 				<div class="carousel-item">
 					<!-- (access + perfo) : WebP + loading="lazy" + alt descriptif -->
-					<img src="./assets/images/slider/nicholas-green-nPz8akkUmDI-unsplash.webp" class="d-block w-100" alt="Foule assistant à un concert en plein air" loading="lazy">
+					<img src="./assets/images/slider/nicholas-green-nPz8akkUmDI-unsplash.webp" class="d-block w-100" width="1200" height="555" alt="Foule assistant à un concert en plein air" loading="lazy">
 				</div>
 				<div class="carousel-item">
 					<!-- (access + perfo) : WebP + loading="lazy" + alt descriptif -->
-					<img src="./assets/images/slider/edward-cisneros-3_h6-1NPDGw-unsplash.webp" class="d-block w-100" alt="Ambiance de mariage avec un couple souriant" loading="lazy">
+					<img src="./assets/images/slider/edward-cisneros-3_h6-1NPDGw-unsplash.webp" class="d-block w-100" width="1200" height="555" alt="Ambiance de mariage avec un couple souriant" loading="lazy">
 				</div>
 			</div>
 			<button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
@@ -84,7 +131,7 @@
 	<section id="about">
 		<div class="picture left">
 			<!-- (access + perfo) : alt descriptif + loading="lazy" -->
-			<img src="./assets/images/nina.png" alt="Portrait de Nina Carducci, photographe" loading="lazy">
+			<img src="./assets/images/nina.webp" alt="Portrait de Nina Carducci, photographe" width="600" height="599" loading="lazy">
 		</div>
 		<div id="about-me">
 			<!-- (SEO + access) : h2 pour respecter la hiérarchie des titres -->
@@ -101,15 +148,15 @@
 		<div class="container py-3">
 			<div class="gallery" style="display: none">
 				<!-- (access + perfo) : WebP + loading="lazy" + alt descriptifs -->
-				<img data-gallery-tag="Concert" class="gallery-item" src="./assets/images/gallery/concerts/aaron-paul-wnX-fXzB6Cw-unsplash.webp" alt="Concert en direct - Artiste sur scène avec éclairage dynamique" loading="lazy"/>
-				<img data-gallery-tag="Entreprises" class="gallery-item" src="./assets/images/gallery/entreprise/ali-morshedlou-WMD64tMfc4k-unsplash.webp" alt="Portrait professionnel d'entreprise en costume" loading="lazy"/>
-				<img data-gallery-tag="Entreprises" class="gallery-item" src="./assets/images/gallery/entreprise/jason-goodman-tHO1_OuKbg0-unsplash.webp" alt="Séance de travail collaborative en entreprise" loading="lazy"/>
-				<img data-gallery-tag="Mariages" class="gallery-item" src="./assets/images/gallery/mariage/hannah-busing-RvF2R_qMpRk-unsplash.webp" alt="Mains de mariés se tenant tendrement" loading="lazy"/>
-				<img data-gallery-tag="Portrait" class="gallery-item" src="./assets/images/gallery/portraits/ade-tunji-rVkhWWZFAtQ-unsplash.webp" alt="Portrait artistique en gros plan" loading="lazy"/>
-				<img data-gallery-tag="Mariages" class="gallery-item" src="./assets/images/gallery/mariage/jakob-owens-SiniLJkXhMc-unsplash.webp" alt="Célébration de mariage en extérieur" loading="lazy"/>
-				<img data-gallery-tag="Portrait" class="gallery-item" src="./assets/images/gallery/portraits/nino-van-prattenburg--443cl1uR_8-unsplash.webp" alt="Portrait de rue expressif" loading="lazy"/>
-				<img data-gallery-tag="Concert" class="gallery-item" src="./assets/images/gallery/concerts/austin-neill-hgO1wFPXl3I-unsplash.webp" alt="Ambiance de concert avec public et projecteurs" loading="lazy"/>
-				<img data-gallery-tag="Entreprises" class="gallery-item" src="./assets/images/gallery/entreprise/mateus-campos-felipe-Fsgzm8N0hIY-unsplash.webp" alt="Sourire en milieu professionnel de bureau" loading="lazy"/>
+				<img data-gallery-tag="Concert" class="gallery-item" src="./assets/images/gallery/concerts/aaron-paul-wnX-fXzB6Cw-unsplash.webp" alt="Concert en direct - Artiste sur scène avec éclairage dynamique" width="1200" height="1600" loading="lazy"/>
+				<img data-gallery-tag="Entreprises" class="gallery-item" src="./assets/images/gallery/entreprise/ali-morshedlou-WMD64tMfc4k-unsplash.webp" alt="Portrait professionnel d'entreprise en costume" width="1200" height="1800" loading="lazy"/>
+				<img data-gallery-tag="Entreprises" class="gallery-item" src="./assets/images/gallery/entreprise/jason-goodman-tHO1_OuKbg0-unsplash.webp" alt="Séance de travail collaborative en entreprise" width="1200" height="812" loading="lazy"/>
+				<img data-gallery-tag="Mariages" class="gallery-item" src="./assets/images/gallery/mariage/hannah-busing-RvF2R_qMpRk-unsplash.webp" alt="Mains de mariés se tenant tendrement" width="1200" height="960" loading="lazy"/>
+				<img data-gallery-tag="Portrait" class="gallery-item" src="./assets/images/gallery/portraits/ade-tunji-rVkhWWZFAtQ-unsplash.webp" alt="Portrait artistique en gros plan" width="1200" height="1799" loading="lazy"/>
+				<img data-gallery-tag="Mariages" class="gallery-item" src="./assets/images/gallery/mariage/jakob-owens-SiniLJkXhMc-unsplash.webp" alt="Célébration de mariage en extérieur" width="1200" height="1800" loading="lazy"/>
+				<img data-gallery-tag="Portrait" class="gallery-item" src="./assets/images/gallery/portraits/nino-van-prattenburg--443cl1uR_8-unsplash.webp" alt="Portrait de rue expressif" width="1200" height="1804" loading="lazy"/>
+				<img data-gallery-tag="Concert" class="gallery-item" src="./assets/images/gallery/concerts/austin-neill-hgO1wFPXl3I-unsplash.webp" alt="Ambiance de concert avec public et projecteurs" width="1200" height="800" loading="lazy"/>
+				<img data-gallery-tag="Entreprises" class="gallery-item" src="./assets/images/gallery/entreprise/mateus-campos-felipe-Fsgzm8N0hIY-unsplash.webp" alt="Sourire en milieu professionnel de bureau" width="1200" height="735" loading="lazy"/>
 			</div>
 		</div>
 		<div class="quote">
@@ -193,7 +240,7 @@
 			</div>
 			<div class="picture right">
 				<!-- (access + perfo) : Alt descriptif + loading="lazy" -->
-				<img src="./assets/images/camera.png" alt="Appareil photo professionnel vintage" loading="lazy">
+				<img src="./assets/images/camera.webp" alt="Appareil photo professionnel vintage" width="600" height="599" loading="lazy">
 			</div>
 		</div>
 	</section>
